@@ -9,7 +9,7 @@ function App() {
       setCounter(counter + 1);
       console.log("Increase Value Clicked", counter);
     }
-  };
+  }; 
 
   const subValue = () => {
     if (counter > 0) {
