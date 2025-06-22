@@ -23,7 +23,7 @@ export const counterSlice = createSlice({
     },
     multiply: (state) => {
       state.value *= 2
-    }
+    } 
   },
 })
 
