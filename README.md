@@ -55,7 +55,9 @@ This repository documents my daily progress as I take on the 60 Days of Learning
 ## 🎯 Topics I Plan to Explore
 
 Some areas I’m excited to dive into:
-- [ ] Web Development
+- [ ] React
+- [ ] Node JS
+- [ ] Express
 
 ---
 ## 🚦 Join the Journey!
