@@ -49,6 +49,22 @@ app.route('/api/users')
         fs.writeFileSync('./MOCK_DATA.json', JSON.stringify(users));
         return res.json({ status: "success", id });
     })
+    .patch((req, res) => {
+        const id = Number(req.params.id);
+        const index = users.findIndex(user => user.id === id);
+
+        if (index === -1) {
+            return res.status(404).json({ status: "error", message: "User not found" });
+        }
+
+        // Update only the fields provided in req.body
+        users[index] = { ...users[index], ...req.body };
+
+        // Save the updated users array to the file
+        fs.writeFileSync('./MOCK_DATA.json', JSON.stringify(users));
+
+        return res.json({ status: "success", user: users[index] });
+    });
 
 app.listen(port, () => console.log(`Server started at port ${port}`));
 
