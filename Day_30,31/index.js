@@ -38,8 +38,19 @@ app.route('/api/users')
         });
     })
     .delete((req, res) => {
-        //Delete code
-        return res.json({ status: "pending" });
+        const id = Number(req.params.id);
+        const index = users.findIndex(user => user.id === id);
+        if (index === -1) {
+            return res.status(404).json({ status: "error", message: "User not found" });
+        }
+        // Remove the user from the array
+        users.splice(index, 1);
+        // Save the updated users array to the file
+        fs.writeFileSync('./MOCK_DATA.json', JSON.stringify(users));
+        return res.json({ status: "success", id });
     })
 
 app.listen(port, () => console.log(`Server started at port ${port}`));
+
+
+
