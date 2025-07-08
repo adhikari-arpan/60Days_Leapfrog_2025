@@ -1,0 +1,51 @@
+﻿**********************
+Windows PowerShell transcript start
+Start time: 20250708191012
+Username: ARPAN-LAPTOP\SLIM 5
+RunAs User: ARPAN-LAPTOP\SLIM 5
+Configuration Name: 
+Machine: ARPAN-LAPTOP (Microsoft Windows NT 10.0.26100.0)
+Host Application: C:\WINDOWS\System32\WindowsPowerShell\v1.0\powershell.exe -noexit -command try { . "c:\Users\SLIM 5\AppData\Local\Programs\Microsoft VS Code\resources\app\out\vs\workbench\contrib\terminal\common\scripts\shellIntegration.ps1" } catch {}
+Process ID: 9588
+PSVersion: 5.1.26100.4202
+PSEdition: Desktop
+PSCompatibleVersions: 1.0, 2.0, 3.0, 4.0, 5.0, 5.1.26100.4202
+BuildVersion: 10.0.26100.4202
+CLRVersion: 4.0.30319.42000
+WSManStackVersion: 3.0
+PSRemotingProtocolVersion: 2.3
+SerializationVersion: 1.1.0.1
+**********************
+Transcript started, output file is .\mongosh_session.txt
+PS E:\Part Time Study\60Days_Leapfrog_2025\Day_38> mongosh
+  acknowledged: true,
+  insertedId: null,
+  matchedCount: 1,
+  modifiedCount: 1,
+  upsertedCount: 0
+}
+arpan> show collections
+test1
+arpan> test1.find()
+ReferenceError: test1 is not defined
+arpan> db.test1.find()
+[
+  {
+    _id: ObjectId('686a8d274da15bf985718dc4'),
+    name: ' Arpan',
+    age: 19
+  },
+  {
+    _id: ObjectId('686bce36f89fbf547f718dc4'),
+    name: 'Akriti',
+    age: 25
+  },
+  { _id: ObjectId('686bce36f89fbf547f718dc5'), name: 'Astha', age: 27 }
+]
+arpan> exit
+PS E:\Part Time Study\60Days_Leapfrog_2025\Day_38> Stop-Transcript
+
+**********************
+Windows PowerShell transcript end
+End time: 20250708193412
+**********************
