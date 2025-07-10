@@ -4,3 +4,5 @@
 1752073209581: POST: /api/users/
 1752073346066: POST: /api/users/
 1752073389877: POST: /api/users/
+1752154797341: GET: /users
+1752154799293: GET: /users
