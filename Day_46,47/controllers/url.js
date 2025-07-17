@@ -10,19 +10,20 @@ async function handleGenerateNewShortURL(req, res) {
     await model.create({
         shortId: shortID,
         redirectURL: body.url,
-        visitHistory : [],
+        visitHistory: [],
     })
 
-    return res.json({ id: shortID});
-}
+    return res.render('home', { id: shortID })
+};
 
-async function handleGetAnalytics(req, res){
+async function handleGetAnalytics(req, res) {
     const shortId = req.params.shortId;
-    const result = await model.findOne({shortId});
-     if (!result) {
+    const result = await model.findOne({ shortId });
+    if (!result) {
         return res.status(404).json({ error: "Short URL not found" });
     }
-    return res.json( { totalClicks: result.visitHistory.length,
+    return res.json({
+        totalClicks: result.visitHistory.length,
         analytics: result.visitHistory,
     })
 }
