@@ -1,6 +1,8 @@
 const express = require('express');
 const path = require('path');
+const cookieParser = require('cookie-parser');
 const { connectToMongoDB } = require("./connect");
+const { restrictToLoggedinUserOnly, checkAuth } = require('./middlewares/auth');
 const URL = require('./models/url');
 
 const urlRoute = require("./routes/url");
@@ -19,16 +21,17 @@ app.set("views", path.resolve("./views"));
 //Specifies that view engine is ejs and next specifies views ko file haru views vanney folder ma xa
 
 app.use(express.json());
-app.use(express.urlencoded({estended : false}));
-// Support for form data
+app.use(express.urlencoded({ estended: false }));
+// This middleware helps to support for form data
+app.use(cookieParser());
 
-app.use("/url", urlRoute);
+app.use("/url", restrictToLoggedinUserOnly, urlRoute);
 app.use("/user", userRoute);
-app.use("/", staticRoute);
+app.use("/", checkAuth, staticRoute);
 
 app.get("/test", async (req, res) => {
     const allUrls = await URL.find({});
-    return res.render('home',{
+    return res.render('home', {
         urls: allUrls,
     });
 })
